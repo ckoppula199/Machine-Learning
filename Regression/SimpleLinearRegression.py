@@ -8,6 +8,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
+"""
+---------------Data Pre-processing---------------
+"""
+
 # Importing dataset
 dataset = pd.read_csv("../Data/Regression/Salary_Data.csv")
 X = dataset.iloc[:, :-1].values
@@ -17,9 +21,19 @@ y = dataset.iloc[:, -1].values
 # data in the train and test sets.
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
+
+"""
+---------------Training the Model---------------
+"""
+
 # Training simple linear regression model on training set
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
+
+
+"""
+---------------Predicting Test Set Results---------------
+"""
 
 # Predicting the test set results and finding sum of difference
 prediction = regressor.predict(X_test)
@@ -32,6 +46,11 @@ for actual, predicted in zip(y_test, prediction):
     sum_difference += abs(actual - predicted)
 
 print(f"Sum difference between predicted and actual values is {sum_difference}")
+"""
+
+
+"""
+---------------Visualising the Data and Results---------------
 """
 
 # Visualising Training set data
