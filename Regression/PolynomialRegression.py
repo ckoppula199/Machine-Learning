@@ -71,7 +71,7 @@ print(linear_regressor.predict([[6.5]]))
 
 
 """
----------------Predicting Result with Linear Regression---------------
+---------------Predicting Result with Polynomial Regression---------------
 """
 # Predict result of 6.5 position level
 # Cant use 6.5 as input, need to include all its polynomial features too
