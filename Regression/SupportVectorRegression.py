@@ -30,7 +30,7 @@ X = sc_X.fit_transform(X)
 y = sc_y.fit_transform(y)
 
 """
----------------Training a Support Vecotr Regression Model---------------
+---------------Training a Support Vector Regression Model---------------
 """
 # Uses Radial Basis Function
 regressor = SVR(kernel="rbf")
