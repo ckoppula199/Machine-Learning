@@ -11,8 +11,12 @@ from sklearn.preprocessing import StandardScaler
 """
 ---------------Data Pre-processing---------------
 """
+# Data not split into training and test set due to small amount of data being
+# processed
+
 # Importing dataset
 dataset = pd.read_csv("../Data/Regression/Position_Salaries.csv")
+# Exclude first column
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
 
