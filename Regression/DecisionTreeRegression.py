@@ -33,7 +33,7 @@ regressor.fit(X, y)
 print(regressor.predict([[6.5]]))
 
 """
----------------Visualising Support Vector Regression Results---------------
+---------------Visualising Decision Tree Regression Results---------------
 """
 X_grid = np.arange(min(X), max(X), 0.1)
 X_grid = X_grid.reshape(len(X_grid), 1)
