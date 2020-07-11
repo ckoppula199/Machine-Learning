@@ -25,7 +25,7 @@ y = dataset.iloc[:, -1].values
 """
 ---------------Training a Random Forest Regression Model---------------
 """
-regressor = RandomForestRegressor(n_estimators=10, random_state=42)
+regressor = RandomForestRegressor(n_estimators=500, random_state=42)
 regressor.fit(X, y)
 
 """
