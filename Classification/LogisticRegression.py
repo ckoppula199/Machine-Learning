@@ -47,3 +47,42 @@ single_prediction = classifier.predict([X_test[0, :]])
 print(f"Single prediction is {single_prediction}")
 print(f"Single prediction confidence [[0, 1]] is {classifier.predict_proba([X_test[0, :]])}")
 print(f"Actual answer is {y_test[0]}")
+
+"""
+---------------Predicting Test Set Result---------------
+"""
+y_pred = classifier.predict(X_test)
+print(y_pred.shape)
+# Convert vectors from horizontal to vertical and display side by side to compare
+print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), axis=1))
+
+"""
+--------------Making the Confusion Matrix---------------
+"""
+
+
+
+"""
+---------------Calculating Error Metrics---------------
+"""
+true_positve = 0
+true_negative = 0
+false_positve = 0
+false_negative = 0
+for actual, pred in zip(y_test, y_pred):
+    if actual == 1 and pred == 1:
+        true_positve += 1
+    elif actual == 1 and pred == 0:
+        false_negative += 1
+    elif actual == 0 and pred == 1:
+        false_positve += 1
+    elif actual == 0 and pred == 0:
+        true_negative += 1
+
+precision = true_positve / (true_positve + false_positve)
+recall = true_positve / (true_positve + false_negative)
+f_score = 2 * ((precision * recall) / (precision + recall))
+
+print(f"Precision is {precision}")
+print(f"Recall is {recall}")
+print(f"f score is {f_score}")
