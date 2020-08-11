@@ -36,6 +36,8 @@ X_test = sc.transform(X_test)
 """
 # reduce to 2 dimensions in order to visualise the results
 pca = PCA(n_components=2)
+X_train = pca.fit_transform(X_train)
+X_test = pca.transform(X_test)
 
 
 """
