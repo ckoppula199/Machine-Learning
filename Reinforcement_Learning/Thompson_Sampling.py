@@ -58,8 +58,20 @@ for n in range(N):
 	# Reward for the ad increased if the user n (row) clicks on the ad (column)
     # Reward either 1 or 0, stored in dataset
 	reward = dataset.values[n, ad]
-    if reward == 1:
-    	num_of_rewards_1[ad] += 1
-    else:
-    	num_of_rewards_0[ad] += 1
-    total_reward += reward
+	if reward == 1:
+		num_of_rewards_1[ad] += 1
+	else:
+		num_of_rewards_0[ad] += 1
+	total_reward += reward
+
+
+"""
+---------------Visualising the Results---------------
+"""
+
+# Histogram plots for each of the ads how much it was selected
+plt.hist(ads_selected)
+plt.title("Histogram of Ad Selections")
+plt.xlabel('Ads')
+plt.ylabel('Number of times each ad was selected')
+plt.show()
