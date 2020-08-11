@@ -41,6 +41,8 @@ sums_of_rewards = [0] * num_of_ads
 # Total reward accumulated over all rounds
 total_reward = 0
 
+# ALGORITHM IMPLEMENTATION
+
 # Iterate over all users (rows)
 for n in range(N):
     ad = 0
