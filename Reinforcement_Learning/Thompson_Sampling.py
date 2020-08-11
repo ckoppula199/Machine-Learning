@@ -41,8 +41,25 @@ num_of_rewards_0 = [0] * num_of_ads
 # Total reward accumulated over all rounds
 total_reward = 0
 
+# ALGORITHM IMPLEMENTATION
+
+# Iterate over all users (rows)
 for n in range(N):
 	ad = 0
 	max_random_draw = 0
+	# for each ad, take a random draw from its (beta) distribution
 	for i in range(num_of_ads):
-		random_beta_draw = random.betavariate(num_of_rewards_1[i], num_of_rewards_0[i])
+		random_beta_draw = random.betavariate(num_of_rewards_1[i] + 1, num_of_rewards_0[i] + 1)
+		# Update variables keeping track of highest random draw and what ad to choose
+		if random_beta_draw > max_random_draw:
+			max_random_draw = random_beta_draw
+			ad = i
+	ads_selected.append(ad)
+	# Reward for the ad increased if the user n (row) clicks on the ad (column)
+    # Reward either 1 or 0, stored in dataset
+	reward = dataset.values[n, ad]
+    if reward == 1:
+    	num_of_rewards_1[ad] += 1
+    else:
+    	num_of_rewards_0[ad] += 1
+    total_reward += reward
