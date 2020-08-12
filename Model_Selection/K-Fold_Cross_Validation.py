@@ -2,7 +2,7 @@
 Kernal Support Vector Machine classification model to determine if someone will buy a new
 SUV based on their age and salary.
 
-Uses k-fold cross validation to choose the best hyperparameters
+Uses k-fold cross validation to find a more realistic and less optimistic accuracy
 """
 
 import numpy as np
