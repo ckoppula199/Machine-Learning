@@ -23,6 +23,11 @@ dataset = pd.read_csv("../Data/Classification/Social_Network_Ads.csv")
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
+# Create new matrix of features including polynomials of features
+# Change degree to see how the model changes, too high a change leads to overfitting
+# poly_classifer = PolynomialFeatures(degree=5)
+# X = poly_classifer.fit_transform(X)
+
 # 75% of data used for training and fixed random seed so that when re-ran same
 # data in the train and test sets.
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state=0)
