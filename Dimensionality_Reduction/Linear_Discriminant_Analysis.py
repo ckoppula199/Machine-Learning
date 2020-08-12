@@ -32,7 +32,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 """
----------------Applying Principal Componenet Analysis---------------
+---------------Applying Linear Discriminant Analysis---------------
 """
 # reduce to 2 dimensions in order to visualise the results
 lda = LDA(n_components=2)
