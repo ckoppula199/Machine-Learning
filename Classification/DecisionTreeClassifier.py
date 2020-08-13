@@ -15,8 +15,6 @@ from sklearn.preprocessing import PolynomialFeatures
 """
 ---------------Data Pre-processing---------------
 """
-# Data not split into training and test set due to small amount of data being
-# processed
 
 # Importing dataset
 dataset = pd.read_csv("../Data/Classification/Social_Network_Ads.csv")
