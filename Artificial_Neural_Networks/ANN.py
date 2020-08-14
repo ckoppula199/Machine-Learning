@@ -9,6 +9,8 @@ import tensorflow as tf
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
+from sklearn.model_selection import train_test_split]
+from sklearn.preprocessing import StandardScaler
 
 """
 ---------------Data Pre-processing---------------
@@ -29,4 +31,11 @@ X[:, 2] = le.fit_transform(X[:,2])
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [1])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
 
-print(X)
+# 80% of data used for training and fixed random seed so that when re-ran same
+# data in the train and test sets.
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=0)
+
+# Apply feature scaling to the data
+sc = StandardScaler
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
