@@ -75,5 +75,5 @@ print(f"F1 score is {f1_score(y_test, y_pred, average='binary', pos_label=2)}")
 --------------Carrying out 10-Fold Cross Validation---------------
 """
 accuracies = cross_val_score(estimator=classifier, X=X_train, y=y_train, cv=10)
-print(f"\nAccuracy: {accuracies.mean()*100}")
-print(f"Standard Deviation: {accuracies.std()*100}")
+print(f"\n10-Fold Accuracy: {accuracies.mean()*100}")
+print(f"Standard Deviation of Accuracies: {accuracies.std()*100}")
