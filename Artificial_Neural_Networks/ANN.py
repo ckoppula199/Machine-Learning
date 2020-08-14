@@ -9,7 +9,7 @@ import tensorflow as tf
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.model_selection import train_test_split]
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 """
@@ -36,6 +36,29 @@ X = np.array(ct.fit_transform(X))
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=0)
 
 # Apply feature scaling to the data
-sc = StandardScaler
+sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
+print(X_train.shape)
+print(X_test.shape)
+
+"""
+Initialising the Aritificial Neural Network
+"""
+
+ann = tf.keras.models.Sequential()
+# Add input layer and first hidden layer
+ann.add(tf.keras.layers.Dense(units=6, activation='relu', input_shape=(X_train.shape[1],)))
+# Add second hidden layer
+ann.add(tf.keras.layers.Dense(units=6, activation='relu'))
+# Add output layer
+ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+
+"""
+Training the Aritificial Neural Network
+"""
+# Compileing the ANN
+ann.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Training the ANN on the training set
+ann.fit(X_train, y_train, batch_size=32, epochs=100)
