@@ -15,3 +15,4 @@ threadpoolctl==2.1.0
 apyori==1.1.2
 tensorflow==2.2.0
 Keras==2.4.3
+nltk==3.5
