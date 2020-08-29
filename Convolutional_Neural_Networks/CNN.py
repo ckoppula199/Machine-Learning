@@ -72,8 +72,8 @@ cnn.fit(x=training_set, validation_data=test_set, epochs=25)
 ---------------Making a Prediction---------------
 """
 test_img = image.load_img('../Data/Convolutional_Neural_Networks/dataset/single_prediction/cat_or_dog_2.jpg', target_size=(64, 64))
-# Convert PIL format to numpy array
-test_img = image.img_to_array(test_img)
+# Convert PIL format to numpy array and apply feature scaling
+test_img = image.img_to_array(test_img / 255)
 # Create a batch
 test_img = np.expand_dims(test_img, axis=0)
 result = cnn.predict(test_img)
